@@ -1,8 +1,9 @@
 from flask import Flask, render_template, jsonify, request, redirect, url_for
+from flask_script import Manager
 import docker
 
 app = Flask(__name__)
-
+manager = Manager(app)
 
 @app.route('/')
 def hello_world():
@@ -28,4 +29,5 @@ def build_docker_image():
 
 
 if __name__ == '__main__':
-    app.run()
+    # app.run()
+    manager.run()
